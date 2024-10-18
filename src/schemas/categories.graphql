@@ -1,0 +1,110 @@
+# Category Type definition
+type Sizes {
+  small: Boolean!
+  medium: Boolean!
+  large: Boolean!
+  extraLarge: Boolean!
+}
+
+type Category {
+  _id: ID!
+  name: String!
+  ParentId: ID
+  type: String
+  sizes: Sizes
+  measurements: [String]
+  materials: [String]
+  descriptionOptions: String
+  AncestorsIds: [ID!]
+  Ancestors: [String!]
+}
+
+input SizesInput {
+  small: Boolean!
+  medium: Boolean!
+  large: Boolean!
+  extraLarge: Boolean!
+}
+
+# Input type for creating or updating a category
+input CategoryInput {
+  _id: ID # Remove the "!" to make it optional, since you are auto-generating it
+  name: String!
+  ParentId: ID
+  type: String
+  sizes: SizesInput!
+  measurements: [String]
+  materials: [String]
+  descriptionOptions: String
+  AncestorsIds: [ID!]
+  Ancestors: [String!]
+}
+
+input MainCategoryInput {
+  name: String!
+  type: String!
+  descriptionOptions: String
+}
+
+# Input type for creating Subcategory
+input SubCategoryInput {
+  name: String!
+  ParentId: ID!
+  type: String!
+  sizes: SizesInput!
+  measurements: [String]
+  materials: [String]
+  descriptionOptions: String
+  AncestorsIds: [ID!]
+  Ancestors: [String!]
+}
+
+type CategoryPayload {
+  totalCount: Int
+  data: [Category]
+}
+
+input updateCategoryInput {
+  _id: ID # Remove the "!" to make it optional, since you are auto-generating it
+  name: String
+  ParentId: ID
+  type: String
+  sizes: SizesInput
+  measurements: [String]
+  materials: [String]
+  descriptionOptions: String
+  AncestorsIds: [ID!]
+  Ancestors: [String!]
+}
+
+type UpdateCategoryPayload {
+  message: String
+  status: Boolean
+  data: Category
+}
+
+type DeleteCategoryPayload {
+  message: String
+  status: Boolean
+  _id: ID
+}
+
+type Mutation {
+  createCategory(input: CategoryInput!): Category
+
+  createMainCategory(input: MainCategoryInput!): Category
+
+  createSubCategory(input: SubCategoryInput!): Category
+
+  updateCategory(_id: ID!, input: updateCategoryInput!): UpdateCategoryPayload
+
+  deleteCategory(_id: ID!): DeleteCategoryPayload
+}
+
+type Query {
+  getAllCategories(
+    itemPerPage: Int
+    PageNumber: Int
+    searchQuery: String
+  ): CategoryPayload
+}
