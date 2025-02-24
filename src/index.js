@@ -14,7 +14,7 @@ import queries from "./queries/index.js";
  * @returns {undefined}
  */
 export default async function register(app) {
-  console.log("CATEGORY PLUGIN REGiSTER++++++");
+  console.log("CATEGORY PLUGIN REGiSTER=====>");
   await app.registerPlugin({
     label: "categories",
     name: "categories",
