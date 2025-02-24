@@ -107,4 +107,6 @@ type Query {
     PageNumber: Int
     searchQuery: String
   ): CategoryPayload
+
+  getCategoriesByParntId(parentCategoryId: ID): CategoryPayload
 }
