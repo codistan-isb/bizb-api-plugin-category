@@ -2,11 +2,11 @@
   "name": "@reactioncommerce/api-plugin-example",
   "description": "Boilerplate Example plugin for the Reaction API",
   "label": "Example Plugin",
-  "version": "0.0.0-development",
+  "version": "1.2.0-development",
   "main": "index.js",
   "type": "module",
   "engines": {
-    "node": ">=16.20.1"
+    "node": ">=12.14.1"
   },
   "homepage": "https://github.com/reactioncommerce/api-plugin-example",
   "url": "https://github.com/reactioncommerce/api-plugin-example",
