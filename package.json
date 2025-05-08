@@ -1,5 +1,5 @@
 {
-  "name": "@reactioncommerce/api-plugin-example",
+  "name": "@codistan-isb/bizb-api-plugin-category",
   "description": "Boilerplate Example plugin for the Reaction API",
   "label": "Example Plugin",
   "version": "1.2.0-development",
